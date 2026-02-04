@@ -7,11 +7,11 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'About', icon: User },
-    { path: '/experience', label: 'Experience', icon: Briefcase },
-    { path: '/skills', label: 'Skills', icon: Award },
-    { path: '/education', label: 'Education', icon: GraduationCap },
-    { path: '/contact', label: 'Contact', icon: Mail },
+    { path: '/', label: 'Beranda', icon: User },
+    { path: '/experience', label: 'Pengalaman', icon: Briefcase },
+    { path: '/skills', label: 'Keahlian', icon: Award },
+    { path: '/education', label: 'Pendidikan', icon: GraduationCap },
+    { path: '/contact', label: 'Kontak', icon: Mail },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
