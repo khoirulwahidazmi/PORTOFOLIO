@@ -119,11 +119,27 @@ const HomePage = () => {
                     className="w-80 h-96 object-cover rounded-2xl shadow-xl"
                   />
                   
-                  {/* Floating Badge */}
+                  {/* Floating Badge untuk CHRP */}
                   <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-xl">
                     <div className="text-center">
                       <div className="font-bold text-lg">CHRP</div>
-                      <div className="text-xs opacity-90">Certified</div>
+                      <div className="text-xs opacity-90">Bersertifikat</div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Badge untuk Gelar S.H. */}
+                  <div className="absolute -top-4 -left-4 bg-gradient-to-r from-green-600 to-teal-600 text-white px-6 py-3 rounded-2xl shadow-xl">
+                    <div className="text-center">
+                      <div className="font-bold text-lg">S.H.</div>
+                      <div className="text-xs opacity-90">Sarjana Hukum</div>
+                    </div>
+                  </div>
+                  
+                  {/* Additional Education Badge */}
+                  <div className="absolute top-1/2 -left-6 bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-4 py-2 rounded-2xl shadow-xl transform -rotate-12">
+                    <div className="text-center">
+                      <div className="font-bold text-sm">UNISMA</div>
+                      <div className="text-xs opacity-90">2020-2024</div>
                     </div>
                   </div>
                 </div>
