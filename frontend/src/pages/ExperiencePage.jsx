@@ -18,7 +18,7 @@ const ExperiencePage = () => {
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="flex flex-col items-center space-y-4">
           <Loader2 className="w-8 h-8 text-blue-400 animate-spin" />
-          <p className="text-white">Loading experiences...</p>
+          <p className="text-white">Memuat pengalaman...</p>
         </div>
       </div>
     );
@@ -28,7 +28,7 @@ const ExperiencePage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="text-center text-white">
-          <h2 className="text-2xl font-bold mb-4">Error Loading Experiences</h2>
+          <h2 className="text-2xl font-bold mb-4">Error Memuat Pengalaman</h2>
           <p className="text-gray-300">{error}</p>
         </div>
       </div>
