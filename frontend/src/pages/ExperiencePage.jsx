@@ -42,14 +42,14 @@ const ExperiencePage = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-blue-600/20 border border-blue-600/30 rounded-full mb-6">
-              <span className="text-blue-400 text-sm font-medium">Professional Journey</span>
+              <span className="text-blue-400 text-sm font-medium">Perjalanan Profesional</span>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Experience</span>
+              Pengalaman <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Kerja</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A comprehensive overview of my professional journey in Human Resources, 
-              showcasing achievements, responsibilities, and career growth.
+              Tinjauan komprehensif perjalanan profesional saya di bidang Sumber Daya Manusia, 
+              menampilkan pencapaian, tanggung jawab, dan pertumbuhan karier.
             </p>
           </div>
 
