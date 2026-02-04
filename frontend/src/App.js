@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import SimpleHome from './pages/SimpleHome';
+import HomePage from './pages/HomePage';
 import ExperiencePage from './pages/ExperiencePage';
 import SkillsPage from './pages/SkillsPage';
 import EducationPage from './pages/EducationPage';
@@ -16,7 +16,7 @@ function App() {
         <Navigation />
         <main className="relative">
           <Routes>
-            <Route path="/" element={<SimpleHome />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/education" element={<EducationPage />} />
