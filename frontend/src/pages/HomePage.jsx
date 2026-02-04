@@ -216,6 +216,171 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      {/* Education Section */}
+      {education && (
+        <div className="py-16">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                  Latar Belakang <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Pendidikan</span>
+                </h2>
+                <p className="text-gray-300 text-lg">
+                  Fondasi akademik yang kuat dalam bidang hukum dan pengembangan profesional
+                </p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  {/* Left - Education Info */}
+                  <div>
+                    <div className="flex items-center mb-6">
+                      <div className="p-4 bg-gradient-to-r from-green-600 to-blue-600 rounded-xl mr-4">
+                        <GraduationCap className="text-white" size={32} />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">{education.degree}</h3>
+                        <p className="text-green-400 font-semibold">{education.university}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-center text-gray-300">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                        <span><strong>Fakultas:</strong> {education.faculty}</span>
+                      </div>
+                      <div className="flex items-center text-gray-300">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                        <span><strong>Jurusan:</strong> {education.major}</span>
+                      </div>
+                      <div className="flex items-center text-gray-300">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                        <span><strong>Periode:</strong> {education.period}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center mt-6 p-4 bg-yellow-600/20 border border-yellow-600/30 rounded-lg">
+                      <Trophy className="text-yellow-400 mr-3" size={24} />
+                      <div>
+                        <span className="text-white font-semibold text-lg">IPK: {education.gpa}</span>
+                        <div className="text-yellow-300 text-sm">Cum Laude</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right - Achievements */}
+                  <div>
+                    <h4 className="text-xl font-bold text-white mb-4">
+                      Pencapaian Akademik
+                    </h4>
+                    <div className="space-y-4">
+                      {education.achievements.map((achievement, index) => (
+                        <div key={index} className="flex items-start space-x-3 p-4 bg-white/5 rounded-lg">
+                          <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                          <p className="text-gray-200">{achievement}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Certifications Gallery */}
+      {certifications && certifications.length > 0 && (
+        <div className="py-16 bg-white/5 backdrop-blur-sm">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                  Galeri <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Sertifikat</span>
+                </h2>
+                <p className="text-gray-300 text-lg">
+                  Sertifikat profesional dan pelatihan yang telah saya peroleh
+                </p>
+              </div>
+              
+              {/* Certificates Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                {certifications.slice(0, 6).map((cert, index) => {
+                  const colors = [
+                    'from-blue-600 to-blue-400',
+                    'from-purple-600 to-purple-400', 
+                    'from-green-600 to-green-400',
+                    'from-orange-600 to-orange-400',
+                    'from-pink-600 to-pink-400',
+                    'from-red-600 to-red-400'
+                  ];
+                  const colorClass = colors[index % colors.length];
+                  
+                  return (
+                    <div key={cert._id} className="relative group">
+                      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 hover:scale-105 transition-all duration-300">
+                        {/* Certificate Header */}
+                        <div className="flex items-start justify-between mb-4">
+                          <div className={`p-3 bg-gradient-to-r ${colorClass} rounded-xl group-hover:scale-110 transition-transform`}>
+                            <Award className="text-white" size={24} />
+                          </div>
+                          <div className={`bg-gradient-to-r ${colorClass}/20 border border-white/20 px-3 py-1 rounded-full text-xs text-white`}>
+                            {cert.type}
+                          </div>
+                        </div>
+                        
+                        {/* Certificate Content */}
+                        <h3 className="text-lg font-bold text-white mb-2">
+                          {cert.title}
+                        </h3>
+                        
+                        <p className="text-gray-300 text-sm mb-3">
+                          {cert.issuer}
+                        </p>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center text-sm text-gray-400">
+                            <Calendar className="mr-2" size={16} />
+                            {cert.date}
+                          </div>
+                          
+                          {/* Rating stars */}
+                          <div className="flex space-x-1">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <div key={star} className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {/* Statistics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="text-center p-4 bg-yellow-600/20 border border-yellow-600/30 rounded-lg">
+                  <div className="text-2xl font-bold text-yellow-400">{certifications.length}</div>
+                  <div className="text-gray-300 text-sm">Total Sertifikat</div>
+                </div>
+                <div className="text-center p-4 bg-blue-600/20 border border-blue-600/30 rounded-lg">
+                  <div className="text-2xl font-bold text-blue-400">4</div>
+                  <div className="text-gray-300 text-sm">Sertifikat Profesional</div>
+                </div>
+                <div className="text-center p-4 bg-purple-600/20 border border-purple-600/30 rounded-lg">
+                  <div className="text-2xl font-bold text-purple-400">3</div>
+                  <div className="text-gray-300 text-sm">Program Pelatihan</div>
+                </div>
+                <div className="text-center p-4 bg-green-600/20 border border-green-600/30 rounded-lg">
+                  <div className="text-2xl font-bold text-green-400">2025</div>
+                  <div className="text-gray-300 text-sm">Sertifikat Terbaru</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
