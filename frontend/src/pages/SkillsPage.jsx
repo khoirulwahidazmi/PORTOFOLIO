@@ -69,16 +69,100 @@ const SkillsPage = () => {
           {/* Skills Grid */}
           <div className="space-y-8">
             {/* Professional Skills */}
-            {renderSkillSection('Professional Skills', skills.professional, 'professional')}
+            {(activeCategory === 'all' || activeCategory === 'professional') && (
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="p-3 bg-gradient-to-r from-blue-600 to-blue-400 rounded-xl mr-4">
+                    <Users className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Professional Skills</h3>
+                </div>
+                
+                <div className="grid gap-3">
+                  {skills.professional.map((skill, index) => (
+                    <div key={index} className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                      <div className="flex items-center">
+                        <CheckCircle2 className="text-blue-400 mr-3 flex-shrink-0" size={20} />
+                        <span className="text-gray-200 font-medium">{skill}</span>
+                      </div>
+                      <div className="flex">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star
+                            key={star}
+                            className={`w-4 h-4 ${star <= 4 ? 'text-yellow-400 fill-current' : 'text-gray-600'}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            )}
             
             {/* Technical Skills */}
-            {renderSkillSection('Technical Skills', skills.technical, 'technical')}
+            {(activeCategory === 'all' || activeCategory === 'technical') && (
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="p-3 bg-gradient-to-r from-purple-600 to-purple-400 rounded-xl mr-4">
+                    <Settings className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Technical Skills</h3>
+                </div>
+                
+                <div className="grid gap-3">
+                  {skills.technical.map((skill, index) => (
+                    <div key={index} className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                      <div className="flex items-center">
+                        <CheckCircle2 className="text-blue-400 mr-3 flex-shrink-0" size={20} />
+                        <span className="text-gray-200 font-medium">{skill}</span>
+                      </div>
+                      <div className="flex">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star
+                            key={star}
+                            className={`w-4 h-4 ${star <= 4 ? 'text-yellow-400 fill-current' : 'text-gray-600'}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            )}
             
             {/* Technology Skills */}
-            {renderSkillSection('Technology Stack', skills.technology, 'technology')}
+            {(activeCategory === 'all' || activeCategory === 'technology') && (
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 hover:bg-white/15 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="p-3 bg-gradient-to-r from-green-600 to-green-400 rounded-xl mr-4">
+                    <Monitor className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Technology Stack</h3>
+                </div>
+                
+                <div className="grid gap-3">
+                  {skills.technology.map((skill, index) => (
+                    <div key={index} className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                      <div className="flex items-center">
+                        <CheckCircle2 className="text-blue-400 mr-3 flex-shrink-0" size={20} />
+                        <span className="text-gray-200 font-medium">{skill}</span>
+                      </div>
+                      <div className="flex">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star
+                            key={star}
+                            className={`w-4 h-4 ${star <= 4 ? 'text-yellow-400 fill-current' : 'text-gray-600'}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            )}
             
             {/* Soft Skills - Special Layout */}
-            {activeCategory === 'soft' && (
+            {(activeCategory === 'all' || activeCategory === 'soft') && (
               <div>
                 <div className="flex items-center mb-6">
                   <div className="p-3 bg-gradient-to-r from-pink-600 to-pink-400 rounded-xl mr-4">
@@ -86,11 +170,58 @@ const SkillsPage = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Soft Skills</h3>
                 </div>
-                {renderSoftSkills()}
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-gradient-to-r from-pink-600 to-pink-400 rounded-xl mr-3">
+                        <Users className="text-white" size={20} />
+                      </div>
+                      <h4 className="text-lg font-bold text-white">Social Skills</h4>
+                    </div>
+                    <div className="space-y-2">
+                      {skills.soft.social.map((skill, index) => (
+                        <Badge key={index} variant="secondary" className="bg-pink-600/20 text-pink-200 border-pink-600/30">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </Card>
+                  
+                  <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-gradient-to-r from-purple-600 to-purple-400 rounded-xl mr-3">
+                        <Brain className="text-white" size={20} />
+                      </div>
+                      <h4 className="text-lg font-bold text-white">Process Skills</h4>
+                    </div>
+                    <div className="space-y-2">
+                      {skills.soft.process.map((skill, index) => (
+                        <Badge key={index} variant="secondary" className="bg-purple-600/20 text-purple-200 border-purple-600/30">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </Card>
+                  
+                  <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 hover:bg-white/15 transition-all duration-300">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-gradient-to-r from-green-600 to-green-400 rounded-xl mr-3">
+                        <Target className="text-white" size={20} />
+                      </div>
+                      <h4 className="text-lg font-bold text-white">Core Skills</h4>
+                    </div>
+                    <div className="space-y-2">
+                      {skills.soft.generic.map((skill, index) => (
+                        <Badge key={index} variant="secondary" className="bg-green-600/20 text-green-200 border-green-600/30">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </Card>
+                </div>
               </div>
             )}
-            
-            {activeCategory === 'all' && renderSoftSkills()}
           </div>
 
           {/* Languages Section */}
