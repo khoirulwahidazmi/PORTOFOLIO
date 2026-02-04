@@ -152,17 +152,17 @@ const ExperiencePage = () => {
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-white/20 rounded-lg p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Ready to Bring This Experience to Your Team?
+                Siap Membawa Pengalaman Ini ke Tim Anda?
               </h3>
               <p className="text-gray-300 mb-6">
-                Let's discuss how my HR expertise can contribute to your organization's success.
+                Mari diskusikan bagaimana keahlian HR saya dapat berkontribusi untuk kesuksesan organisasi Anda.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors">
-                  Schedule a Call
+                  Jadwalkan Panggilan
                 </button>
                 <button className="border border-white/30 text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg transition-colors">
-                  View My Skills
+                  Lihat Keahlian Saya
                 </button>
               </div>
             </div>
