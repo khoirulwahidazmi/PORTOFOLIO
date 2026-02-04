@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, ChevronDown, ChevronUp, Building2, CheckCircle } from 'lucide-react';
-import { experiences } from '../data/mock';
-import { Card } from '../components/ui/card';
-import { Button } from '../components/ui/button';
+import { Calendar, MapPin, ChevronDown, ChevronUp, Building2, CheckCircle, Loader2 } from 'lucide-react';
+import { useExperiences } from '../hooks/usePortfolio';
 
 const ExperiencePage = () => {
+  const { data: experiences, loading, error } = useExperiences();
   const [expandedCards, setExpandedCards] = useState({});
 
   const toggleCard = (id) => {
@@ -13,6 +12,28 @@ const ExperiencePage = () => {
       [id]: !prev[id]
     }));
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-4">
+          <Loader2 className="w-8 h-8 text-blue-400 animate-spin" />
+          <p className="text-white">Loading experiences...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
+        <div className="text-center text-white">
+          <h2 className="text-2xl font-bold mb-4">Error Loading Experiences</h2>
+          <p className="text-gray-300">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
@@ -40,17 +61,17 @@ const ExperiencePage = () => {
             {/* Experience Cards */}
             <div className="space-y-8">
               {experiences.map((exp, index) => {
-                const isExpanded = expandedCards[exp.id];
+                const isExpanded = expandedCards[exp._id];
                 const isEven = index % 2 === 0;
                 
                 return (
-                  <div key={exp.id} className="relative">
+                  <div key={exp._id} className="relative">
                     {/* Timeline Dot */}
                     <div className="absolute left-6 w-5 h-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-black hidden md:block z-10"></div>
                     
                     {/* Card Container */}
                     <div className={`md:ml-20 ${isEven ? 'md:mr-20' : 'md:ml-32'}`}>
-                      <Card className={`bg-white/10 backdrop-blur-sm border-white/20 p-8 hover:bg-white/15 transition-all duration-500 ${
+                      <div className={`bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 hover:bg-white/15 transition-all duration-500 ${
                         isExpanded ? 'shadow-2xl scale-105' : 'hover:scale-102'
                       }`}>
                         {/* Card Header */}
@@ -76,14 +97,12 @@ const ExperiencePage = () => {
                           </div>
                           
                           {/* Expand Button */}
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => toggleCard(exp.id)}
-                            className="text-white hover:text-blue-400 hover:bg-white/10"
+                          <button
+                            onClick={() => toggleCard(exp._id)}
+                            className="text-white hover:text-blue-400 hover:bg-white/10 p-2 rounded transition-colors"
                           >
                             {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                          </Button>
+                          </button>
                         </div>
 
                         {/* Achievements - Show first 2 by default, all when expanded */}
@@ -106,18 +125,16 @@ const ExperiencePage = () => {
                           {/* Show more indicator */}
                           {!isExpanded && exp.achievements.length > 2 && (
                             <div className="pt-3">
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => toggleCard(exp.id)}
-                                className="text-blue-400 hover:text-white hover:bg-white/10 font-medium"
+                              <button
+                                onClick={() => toggleCard(exp._id)}
+                                className="text-blue-400 hover:text-white hover:bg-white/10 font-medium px-3 py-1 rounded transition-colors"
                               >
                                 +{exp.achievements.length - 2} more achievements
-                              </Button>
+                              </button>
                             </div>
                           )}
                         </div>
-                      </Card>
+                      </div>
                     </div>
                   </div>
                 );
@@ -127,7 +144,7 @@ const ExperiencePage = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <Card className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-white/20 p-8 max-w-2xl mx-auto">
+            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-white/20 rounded-lg p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Ready to Bring This Experience to Your Team?
               </h3>
@@ -135,17 +152,14 @@ const ExperiencePage = () => {
                 Let's discuss how my HR expertise can contribute to your organization's success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-colors">
                   Schedule a Call
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-white/30 text-white hover:bg-white hover:text-black px-8 py-3"
-                >
+                </button>
+                <button className="border border-white/30 text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg transition-colors">
                   View My Skills
-                </Button>
+                </button>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>
