@@ -1,12 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Download, MapPin, Mail, Phone, Linkedin, ExternalLink } from 'lucide-react';
-import { personalInfo } from '../data/mock';
+import { Download, MapPin, Mail, Phone, Linkedin, ExternalLink, Loader2 } from 'lucide-react';
+import { usePersonalInfo } from '../hooks/usePortfolio';
 
 const HomePage = () => {
+  const { data: personalInfo, loading, error } = usePersonalInfo();
+
   const handleDownloadCV = () => {
-    window.open(personalInfo.cvUrl, '_blank');
+    if (personalInfo?.cv_url) {
+      window.open(personalInfo.cv_url, '_blank');
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-4">
+          <Loader2 className="w-8 h-8 text-blue-400 animate-spin" />
+          <p className="text-white">Loading portfolio...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
+        <div className="text-center text-white">
+          <h2 className="text-2xl font-bold mb-4">Error Loading Portfolio</h2>
+          <p className="text-gray-300">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!personalInfo) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
+        <div className="text-center text-white">
+          <h2 className="text-2xl font-bold mb-4">Portfolio Not Found</h2>
+          <p className="text-gray-300">Personal information could not be loaded.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
@@ -19,7 +56,7 @@ const HomePage = () => {
               {/* Main Title */}
               <div className="space-y-4">
                 <div className="inline-block px-4 py-2 bg-blue-600/20 border border-blue-600/30 rounded-full">
-                  <span className="text-blue-400 text-sm font-medium">HR Professional & Legal Expert</span>
+                  <span className="text-blue-400 text-sm font-medium">{personalInfo.title}</span>
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
                   {personalInfo.name.split(' ').slice(0, 2).join(' ')}
@@ -77,7 +114,7 @@ const HomePage = () => {
                 {/* Main Image Container */}
                 <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-2xl">
                   <img
-                    src={personalInfo.profileImage}
+                    src={personalInfo.profile_image}
                     alt={personalInfo.name}
                     className="w-80 h-96 object-cover rounded-2xl shadow-xl"
                   />
