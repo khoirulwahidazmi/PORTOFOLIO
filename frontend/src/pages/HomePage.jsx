@@ -5,6 +5,8 @@ import { usePersonalInfo, useEducation, useCertifications } from '../hooks/usePo
 
 const HomePage = () => {
   const { data: personalInfo, loading, error } = usePersonalInfo();
+  const { data: education, loading: educationLoading } = useEducation();
+  const { data: certifications, loading: certificationsLoading } = useCertifications();
 
   const handleDownloadCV = () => {
     if (personalInfo?.cv_url) {
