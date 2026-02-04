@@ -154,7 +154,7 @@ const HomePage = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-white text-center mb-8">
-              About Me
+              Tentang Saya
             </h2>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8">
               <p className="text-gray-200 text-lg leading-relaxed text-center">
@@ -170,10 +170,10 @@ const HomePage = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Let's Connect
+              Mari Terhubung
             </h2>
             <p className="text-gray-300 text-lg">
-              Ready to discuss HR opportunities and collaboration
+              Siap mendiskusikan peluang HR dan kolaborasi
             </p>
           </div>
           
@@ -181,7 +181,7 @@ const HomePage = () => {
             {/* Location */}
             <div className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300">
               <MapPin className="mx-auto mb-4 text-blue-400" size={32} />
-              <h3 className="text-white font-semibold mb-2">Location</h3>
+              <h3 className="text-white font-semibold mb-2">Lokasi</h3>
               <p className="text-gray-300 text-sm">{personalInfo.location}</p>
             </div>
             
@@ -205,7 +205,7 @@ const HomePage = () => {
               <Linkedin className="mx-auto mb-4 text-green-400 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-white font-semibold mb-2">LinkedIn</h3>
               <div className="flex items-center justify-center text-gray-300 text-sm">
-                <span>Connect with me</span>
+                <span>Terhubung dengan saya</span>
                 <ExternalLink className="ml-1" size={14} />
               </div>
             </a>
