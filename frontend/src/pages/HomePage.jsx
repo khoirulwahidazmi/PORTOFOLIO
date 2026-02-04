@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Download, MapPin, Mail, Phone, Linkedin, ExternalLink } from 'lucide-react';
 import { personalInfo } from '../data/mock';
-import { Button } from '../components/ui/button';
-import { Card } from '../components/ui/card';
 
 const HomePage = () => {
   const handleDownloadCV = () => {
@@ -53,21 +51,18 @@ const HomePage = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+                <button 
                   onClick={handleDownloadCV}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 hover:scale-105"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
                 >
                   <Download className="mr-2" size={20} />
                   Download CV
-                </Button>
+                </button>
                 <Link to="/contact">
-                  <Button 
-                    variant="outline"
-                    className="border-white/30 text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 w-full sm:w-auto"
-                  >
+                  <button className="border border-white/30 text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
                     <Mail className="mr-2" size={20} />
                     Get In Touch
-                  </Button>
+                  </button>
                 </Link>
               </div>
             </div>
@@ -108,11 +103,11 @@ const HomePage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-white text-center mb-8">
               About Me
             </h2>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8">
               <p className="text-gray-200 text-lg leading-relaxed text-center">
                 {personalInfo.summary}
               </p>
-            </Card>
+            </div>
           </div>
         </div>
       </div>
