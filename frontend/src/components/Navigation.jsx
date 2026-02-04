@@ -10,7 +10,6 @@ const Navigation = () => {
     { path: '/', label: 'Beranda', icon: User },
     { path: '/experience', label: 'Pengalaman', icon: Briefcase },
     { path: '/skills', label: 'Keahlian', icon: Award },
-    { path: '/education', label: 'Pendidikan', icon: GraduationCap },
     { path: '/contact', label: 'Kontak', icon: Mail },
   ];
 
