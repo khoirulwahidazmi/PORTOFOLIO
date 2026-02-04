@@ -74,15 +74,15 @@ const HomePage = () => {
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
                   <div className="text-3xl font-bold text-blue-400">98%</div>
-                  <div className="text-gray-300 text-sm">MPP Fulfillment</div>
+                  <div className="text-gray-300 text-sm">Pemenuhan MPP</div>
                 </div>
                 <div className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
                   <div className="text-3xl font-bold text-purple-400">100%</div>
-                  <div className="text-gray-300 text-sm">Payroll Accuracy</div>
+                  <div className="text-gray-300 text-sm">Akurasi Payroll</div>
                 </div>
                 <div className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl col-span-2 lg:col-span-1">
                   <div className="text-3xl font-bold text-green-400">8+</div>
-                  <div className="text-gray-300 text-sm">Certifications</div>
+                  <div className="text-gray-300 text-sm">Sertifikasi</div>
                 </div>
               </div>
 
@@ -93,12 +93,12 @@ const HomePage = () => {
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
                 >
                   <Download className="mr-2" size={20} />
-                  Download CV
+                  Unduh CV
                 </button>
                 <Link to="/contact">
                   <button className="border border-white/30 text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
                     <Mail className="mr-2" size={20} />
-                    Get In Touch
+                    Hubungi Saya
                   </button>
                 </Link>
               </div>
