@@ -8,8 +8,8 @@ const EducationPage = () => {
   const [activeTab, setActiveTab] = useState('education');
 
   const tabs = [
-    { id: 'education', label: 'Education', icon: GraduationCap },
-    { id: 'certifications', label: 'Certifications', icon: Award },
+    { id: 'education', label: 'Pendidikan', icon: GraduationCap },
+    { id: 'certifications', label: 'Sertifikasi', icon: Award },
   ];
 
   const loading = educationLoading || certificationsLoading;
@@ -32,7 +32,7 @@ const EducationPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="flex flex-col items-center space-y-4">
           <Loader2 className="w-8 h-8 text-green-400 animate-spin" />
-          <p className="text-white">Loading education data...</p>
+          <p className="text-white">Memuat data pendidikan...</p>
         </div>
       </div>
     );
@@ -42,7 +42,7 @@ const EducationPage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="text-center text-white">
-          <h2 className="text-2xl font-bold mb-4">Error Loading Education Data</h2>
+          <h2 className="text-2xl font-bold mb-4">Error Memuat Data Pendidikan</h2>
           <p className="text-gray-300">{error}</p>
         </div>
       </div>
@@ -56,14 +56,14 @@ const EducationPage = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-green-600/20 border border-green-600/30 rounded-full mb-6">
-              <span className="text-green-400 text-sm font-medium">Academic & Professional Development</span>
+              <span className="text-green-400 text-sm font-medium">Pendidikan & Pengembangan Profesional</span>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              Education & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Certifications</span>
+              Pendidikan & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Sertifikasi</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              My academic foundation and continuous professional development through 
-              certifications, training programs, and organizational leadership.
+              Fondasi akademik dan pengembangan profesional berkelanjutan melalui 
+              sertifikasi, program pelatihan, dan kepemimpinan organisasi.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ const EducationPage = () => {
                         
                         <div className="flex items-center">
                           <Trophy className="mr-3 text-yellow-400" size={20} />
-                          <span className="text-white font-semibold">GPA: {education.gpa}</span>
+                          <span className="text-white font-semibold">IPK: {education.gpa}</span>
                           <div className="ml-3 bg-yellow-600/20 text-yellow-300 border border-yellow-600/30 px-3 py-1 rounded-full text-sm">
                             Cum Laude
                           </div>
@@ -137,7 +137,7 @@ const EducationPage = () => {
                     <div>
                       <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                         <Star className="mr-2 text-yellow-400" size={24} />
-                        Academic Achievements
+                        Pencapaian Akademik
                       </h3>
                       
                       <div className="space-y-4">
@@ -205,28 +205,28 @@ const EducationPage = () => {
           <div className="mt-16">
             <div className="bg-gradient-to-r from-green-600/20 to-blue-600/20 border border-white/20 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-white text-center mb-8">
-                Professional Development Summary
+                Ringkasan Pengembangan Profesional
               </h3>
               
               <div className="grid md:grid-cols-4 gap-6 text-center">
                 <div className="space-y-2">
-                  <div className="text-3xl font-bold text-green-400">4.00</div>
-                  <div className="text-gray-300 text-sm">Academic Excellence</div>
+                  <div className="text-3xl font-bold text-green-400">3.75</div>
+                  <div className="text-gray-300 text-sm">IPK Akademik</div>
                 </div>
                 
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-blue-400">{certifications ? certifications.length : '0'}</div>
-                  <div className="text-gray-300 text-sm">Professional Certifications</div>
+                  <div className="text-gray-300 text-sm">Sertifikasi Profesional</div>
                 </div>
                 
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-purple-400">2+</div>
-                  <div className="text-gray-300 text-sm">Years Leadership Experience</div>
+                  <div className="text-gray-300 text-sm">Tahun Kepemimpinan</div>
                 </div>
                 
                 <div className="space-y-2">
                   <div className="text-3xl font-bold text-yellow-400">3</div>
-                  <div className="text-gray-300 text-sm">Languages Proficient</div>
+                  <div className="text-gray-300 text-sm">Bahasa Dikuasai</div>
                 </div>
               </div>
             </div>
@@ -236,14 +236,14 @@ const EducationPage = () => {
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-green-600/20 to-purple-600/20 border border-white/20 rounded-lg p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Continuous Learning & Growth
+                Pembelajaran & Pertumbuhan Berkelanjutan
               </h3>
               <p className="text-gray-300 mb-6">
-                My commitment to professional development ensures I stay current with 
-                industry trends and best practices. Ready to bring this expertise to your organization.
+                Komitmen saya untuk pengembangan profesional memastikan saya selalu mengikuti 
+                tren industri dan praktik terbaik. Siap membawa keahlian ini untuk organisasi Anda.
               </p>
               <button className="bg-gradient-to-r from-green-600 to-purple-600 hover:from-green-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg transition-colors">
-                Discuss Opportunities
+                Diskusikan Peluang
               </button>
             </div>
           </div>
