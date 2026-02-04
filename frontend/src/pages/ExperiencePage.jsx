@@ -78,8 +78,14 @@ const ExperiencePage = () => {
                         <div className="flex justify-between items-start mb-6">
                           <div className="flex-1">
                             <div className="flex items-center mb-3">
-                              <Building2 className="text-blue-400 mr-3" size={24} />
-                              <span className="text-blue-400 font-semibold text-lg">{exp.company}</span>
+                              {/* Company Logo */}
+                              <div className="w-12 h-12 bg-blue-600/20 border border-blue-600/30 rounded-xl flex items-center justify-center mr-4">
+                                <Building2 className="text-blue-400" size={24} />
+                              </div>
+                              <div>
+                                <span className="text-blue-400 font-semibold text-lg block">{exp.company}</span>
+                                <span className="text-gray-400 text-sm">Indonesia</span>
+                              </div>
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-3">
                               {exp.title}
@@ -109,7 +115,7 @@ const ExperiencePage = () => {
                         <div className="space-y-3">
                           <h4 className="text-white font-semibold mb-4 flex items-center">
                             <CheckCircle className="text-green-400 mr-2" size={20} />
-                            Key Achievements
+                            Pencapaian Utama
                           </h4>
                           
                           {exp.achievements
@@ -129,7 +135,7 @@ const ExperiencePage = () => {
                                 onClick={() => toggleCard(exp._id)}
                                 className="text-blue-400 hover:text-white hover:bg-white/10 font-medium px-3 py-1 rounded transition-colors"
                               >
-                                +{exp.achievements.length - 2} more achievements
+                                +{exp.achievements.length - 2} pencapaian lainnya
                               </button>
                             </div>
                           )}
