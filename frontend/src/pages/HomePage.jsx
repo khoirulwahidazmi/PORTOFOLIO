@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Download, MapPin, Mail, Phone, Linkedin, ExternalLink, Loader2 } from 'lucide-react';
-import { usePersonalInfo } from '../hooks/usePortfolio';
+import { Download, MapPin, Mail, Phone, Linkedin, ExternalLink, Loader2, GraduationCap, Trophy, Award, Calendar } from 'lucide-react';
+import { usePersonalInfo, useEducation, useCertifications } from '../hooks/usePortfolio';
 
 const HomePage = () => {
   const { data: personalInfo, loading, error } = usePersonalInfo();
