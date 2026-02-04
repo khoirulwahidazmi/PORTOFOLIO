@@ -17,7 +17,7 @@ const HomePage = () => {
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="flex flex-col items-center space-y-4">
           <Loader2 className="w-8 h-8 text-blue-400 animate-spin" />
-          <p className="text-white">Loading portfolio...</p>
+          <p className="text-white">Memuat portofolio...</p>
         </div>
       </div>
     );
@@ -27,7 +27,7 @@ const HomePage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="text-center text-white">
-          <h2 className="text-2xl font-bold mb-4">Error Loading Portfolio</h2>
+          <h2 className="text-2xl font-bold mb-4">Error Memuat Portofolio</h2>
           <p className="text-gray-300">{error}</p>
         </div>
       </div>
@@ -38,8 +38,8 @@ const HomePage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
         <div className="text-center text-white">
-          <h2 className="text-2xl font-bold mb-4">Portfolio Not Found</h2>
-          <p className="text-gray-300">Personal information could not be loaded.</p>
+          <h2 className="text-2xl font-bold mb-4">Portofolio Tidak Ditemukan</h2>
+          <p className="text-gray-300">Informasi personal tidak dapat dimuat.</p>
         </div>
       </div>
     );
